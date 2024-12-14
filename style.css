@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+    text-transform: capitalize;
+}
+
+h1 {
+    margin: 25px;
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 0;
+}
+
+.container {
+    position: relative;
+    width: 200px;
+    height: 350px;
+    transform-style: preserve-3d;
+    animation: rotate 20s linear infinite;
+}
+
+.container span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(300px);
+    cursor: pointer;
+}
+
+
+.container span img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.9);
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.container:hover {
+    animation-play-state: paused;
+}
+
+
+
+
+
+
+/* => js code for the future
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll('.container span');
+    const total = images.length; // Total number of images
+    const angle = 360 / total;   // Angle between each image
+
+    images.forEach((image, index) => {
+        image.style.transform = `rotateY(${index * angle}deg) translateZ(300px)`;
+    });
+});
+*/
